@@ -7,8 +7,8 @@ const DateCard = () => {
         alt="Rounded avatar"
       />
       <div className="pl-3">
-        <p className="text-md text-gray-500 font-bold">Hashan Ranasinghe</p>
-        <p className="text-xs text-gray-400 font-semibold">Jan 17, 2024</p>
+        <p className="text-sm text-gray-500 font-semibold">Hashan Ranasinghe</p>
+        <p className="text-xs text-gray-400">Jan 17, 2024</p>
       </div>
     </div>
   );

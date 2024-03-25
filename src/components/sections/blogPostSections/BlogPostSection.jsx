@@ -1,5 +1,6 @@
 import { motion as m } from "framer-motion";
 import BlogPostCard from "../../cards/BlogPostCard";
+import TopicCard from "../../cards/TopicCard";
 
 function BlogPostSection() {
   const sectionVariant = {
@@ -26,16 +27,13 @@ function BlogPostSection() {
       className="bg-gray-50 py-20 px-20"
       id="project"
     >
-      <div className="container mx-auto text-xl">
+    
         <div className="flex flex-col items-center gap-3">
-          <div className="w-screen ml-6">
-            <h1 className="text-gray-600 font-semibold text-3xl">
+          <div className="flex flex-row h-screen w-screen">
+            <div className="h-screen w-3/4 flex flex-col">
+            <h1 className="text-gray-600 font-semibold text-3xl pl-5">
               Latest Blog Posts
             </h1>
-          </div>
-
-          <div className="flex flex-row h-screen w-screen">
-            <div className="bg-blue-700 h-screen w-3/4 flex flex-col">
               {[...Array(10)].map((_, index) => (
                 <div
                   className="flex flex-wrap justify-start items-start gap-x-10 gap-y-5 pt-5 ml-20"
@@ -51,10 +49,15 @@ function BlogPostSection() {
                 </div>
               ))}
             </div>
-            <div className="bg-yellow-300 h-screen w-1/4"></div>
+            <div className="flex h-screen w-1/4 justify-start items-center flex-col">
+            <h1 className="text-gray-600 font-semibold text-2xl">
+              Topics
+            </h1>
+            <TopicCard/>
+            </div>
           </div>
         </div>
-      </div>
+      
     </m.div>
   );
 }
