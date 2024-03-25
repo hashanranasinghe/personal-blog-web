@@ -1,9 +1,14 @@
 import "./App.css";
-
+import Layout from "./pages/Layout";
+import Header from "./components/sections/heroSection/Hearder";
+import BlogPostSection from "./components/sections/blogPostSections/BlogPostSection";
 function App() {
   return (
     <>
-      <h1 className="text-5xl font-bold underline text-red-600">Hello world!</h1>
+      <Layout>
+        <Header />
+        <BlogPostSection/>
+      </Layout>
     </>
   );
 }
