@@ -3,6 +3,7 @@ import BlogPostCard from "../../cards/BlogPostCard";
 import TopicCard from "../../cards/TopicCard";
 import TagCard from "../../cards/TagCard";
 import LetsTalkCard from "../../cards/LetsTalkCard";
+import PortfolioCard from "../../cards/PortfolioCard";
 
 function BlogPostSection() {
   const sectionVariant = {
@@ -31,7 +32,7 @@ function BlogPostSection() {
     >
       <div className="flex flex-col items-center gap-3">
         <div className="flex flex-row w-screen">
-          <div className="h-screen w-3/4 flex flex-col">
+          <div className="w-3/5 flex flex-col">
             <h1 className="text-gray-600 font-semibold text-3xl pl-5">
               Latest Blog Posts
             </h1>
@@ -50,18 +51,23 @@ function BlogPostSection() {
               </div>
             ))}
           </div>
-          <div className="flex h-screen w-1/4 justify-start items-center flex-col">
+          <div className="flex h-screen w-2/5 justify-start items-center flex-col">
             <h1 className="text-gray-600 font-semibold text-2xl">Topics</h1>
             {[...Array(4)].map((_, index) => (
               <TopicCard key={index} />
             ))}
             <h1 className="text-gray-600 font-semibold text-2xl py-5">Tags</h1>
-            <div className="flex flex-wrap gap-1 bg-gray-100 p-5 rounded-lg">
+            <div className="flex flex-wrap gap-1 bg-gray-100 p-5 rounded-lg w-96">
               {[...Array(9)].map((_, index) => (
                 <TagCard key={index} />
               ))}
             </div>
             <LetsTalkCard />
+            <h1 className="text-gray-600 font-semibold text-2xl py-5">
+              Portfolio
+            </h1>
+            <PortfolioCard/>
+
           </div>
         </div>
       </div>
