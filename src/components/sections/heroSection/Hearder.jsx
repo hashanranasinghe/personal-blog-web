@@ -1,9 +1,8 @@
 import { useState } from "react";
 import HamburgerMenu from "./HamburgerMenu";
-import HeroSection from "./HeroSection";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { Link } from "react-scroll";
-import "./progress.css";
+import "/src/css/progress.css";
 
 function Header() {
   const [selectedItem, setSelectedItem] = useState("home");
@@ -15,7 +14,7 @@ function Header() {
   const navigationItems = [
     { id: "home", label: "Home" },
     { id: "project", label: "Projects" },
-    { id: "About", label:"About" },
+    { id: "About", label: "About" },
   ];
 
   const { scrollYProgress } = useScroll();
@@ -26,10 +25,7 @@ function Header() {
   });
 
   return (
-    <div
-      className="h-screen overflow-hidden relative bg-gradient-to-t from-indigo-50"
-      id="home"
-    >
+    <div className="overflow-hidden relative bg-gradient-to-t from-indigo-50">
       <nav className="w-full fixed top-0 z-20 backdrop-blur-md bg-white/50 ...">
         <div className="container mx-auto py-5 flex items-center justify-between">
           <span className="text-2xl font-bold text-indigo-900">H</span>
@@ -64,7 +60,6 @@ function Header() {
           style={{ scaleX }}
         />
       </nav>
-      <HeroSection />
     </div>
   );
 }

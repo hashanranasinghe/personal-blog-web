@@ -4,6 +4,8 @@ import TopicCard from "../../cards/TopicCard";
 import TagCard from "../../cards/TagCard";
 import LetsTalkCard from "../../cards/LetsTalkCard";
 import PortfolioCard from "../../cards/PortfolioCard";
+import { Link } from "react-router-dom";
+import PathConstants from "../../../routes/PathConstants";
 
 function BlogPostSection() {
   const sectionVariant = {
@@ -37,18 +39,17 @@ function BlogPostSection() {
               Latest Blog Posts
             </h1>
             {[...Array(10)].map((_, index) => (
-              <div
-                className="flex flex-wrap justify-start items-start gap-x-10 gap-y-5 pt-5 ml-20"
-                key={index}
-              >
-                <BlogPostCard
-                  // handleReadMoreClick={}
-                  title="Food Care Mobile App"
-                  gitLink=""
-                  short="In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available."
-                  image="/src/assets/p.jpg"
-                />
-              </div>
+              <Link key={index} to={PathConstants.BLOG_VIEW}>
+                <div className="flex flex-wrap justify-start items-start gap-x-10 gap-y-5 pt-5 ml-20">
+                  <BlogPostCard
+                    // handleReadMoreClick={}
+                    title="Food Care Mobile App"
+                    gitLink=""
+                    short="In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available."
+                    image="/src/assets/p.jpg"
+                  />
+                </div>
+              </Link>
             ))}
           </div>
           <div className="flex h-screen w-2/5 justify-start items-center flex-col">
@@ -66,8 +67,7 @@ function BlogPostSection() {
             <h1 className="text-gray-600 font-semibold text-2xl py-5">
               Portfolio
             </h1>
-            <PortfolioCard/>
-
+            <PortfolioCard />
           </div>
         </div>
       </div>

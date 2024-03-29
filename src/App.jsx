@@ -1,22 +1,18 @@
-import "./App.css";
-import Layout from "./pages/Layout";
-import Header from "./components/sections/heroSection/Hearder";
-import BlogPostSection from "./components/sections/blogPostSections/BlogPostSection";
-import FooterSection from "./components/sections/FooterSection/FooterSection";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import routes from "./routes/Routes";
 import BlogViewPage from "./pages/BlogViewPage";
-function App() {
-  return (
-    <>
-      <Layout>
-     
+import LayoutPage from "./components/layouts/LayoutPage";
 
-        <Header />
-        <BlogPostSection/>
-     <BlogViewPage/>
-        <FooterSection/>
-      </Layout>
-    </>
-  );
+function App() {
+  const router = createBrowserRouter([
+    {
+      element: <LayoutPage />,
+      children: routes,
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
 }
 
 export default App;
