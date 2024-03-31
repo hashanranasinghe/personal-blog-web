@@ -1,10 +1,11 @@
-import Layout from "../components/layouts/Layout";
+import Layout from "../../components/layouts/Layout";
+import BlogPostView from "./BlogPostView";
 
 function BlogViewPage() {
   return (
     <>
       <Layout>
-
+        <BlogPostView/>
       </Layout>
     </>
   );

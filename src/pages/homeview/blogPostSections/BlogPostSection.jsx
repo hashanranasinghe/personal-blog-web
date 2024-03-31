@@ -1,9 +1,9 @@
 import { motion as m } from "framer-motion";
-import BlogPostCard from "../../cards/BlogPostCard";
-import TopicCard from "../../cards/TopicCard";
-import TagCard from "../../cards/TagCard";
-import LetsTalkCard from "../../cards/LetsTalkCard";
-import PortfolioCard from "../../cards/PortfolioCard";
+import BlogPostCard from "../../../components/cards/BlogPostCard";
+import TopicCard from "../../../components/cards/TopicCard";
+import TagCard from "../../../components/cards/TagCard";
+import LetsTalkCard from "../../../components/cards/LetsTalkCard";
+import PortfolioCard from "../../../components/cards/PortfolioCard";
 import { Link } from "react-router-dom";
 import PathConstants from "../../../routes/PathConstants";
 
