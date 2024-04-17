@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import RoundButton from "../../buttons/RoundButton";
-
+import Hero from "../../../assets/hero.png";
 function HeroSection() {
   return (
     <>
@@ -21,7 +21,7 @@ function HeroSection() {
       ></motion.div>
 
       <div className="flex flex-row h-screen">
-        <div className=" w-screen flex justify-center items-center">
+        <div className=" w-1/2 flex justify-center items-center">
           <div className="flex flex-col">
             <div className="flex flex-row">
               <h1 className="text-4xl font-bold mr-3">HI, I`M</h1>
@@ -40,7 +40,14 @@ function HeroSection() {
             </div>
           </div>
         </div>
-        <div className="bg-red-800 w-screen"></div>
+        <div className="w-1/2 flex justify-center items-center">
+
+       <img
+        src={Hero}
+        className="h-2/3"
+        alt=""
+      />
+        </div>
       </div>
     </>
   );

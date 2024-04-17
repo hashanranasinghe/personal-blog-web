@@ -6,7 +6,14 @@ import LetsTalkCard from "../../../components/cards/LetsTalkCard";
 import PortfolioCard from "../../../components/cards/PortfolioCard";
 import { Link } from "react-router-dom";
 import PathConstants from "../../../routes/PathConstants";
-
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchBlogsRequest,
+  fetchBlogsSuccess,
+  fetchBlogsFailure,
+} from "../../../redux/actions";
+import axios from "axios";
 function BlogPostSection() {
   const sectionVariant = {
     offscreen: {
@@ -22,7 +29,20 @@ function BlogPostSection() {
       },
     },
   };
+  const dispatch = useDispatch();
+  const { blogs, loading, error } = useSelector((state) => state.blog);
 
+  useEffect(() => {
+    dispatch(fetchBlogsRequest());
+    axios
+      .get("/src/assets/data/db.json")
+      .then((response) => {
+        dispatch(fetchBlogsSuccess(response.data.blogs));
+      })
+      .catch((error) => {
+        dispatch(fetchBlogsFailure(error.message));
+      });
+  }, [dispatch]);
   return (
     <m.div
       initial="offscreen"
@@ -38,19 +58,25 @@ function BlogPostSection() {
             <h1 className="text-gray-600 font-semibold text-3xl pl-5">
               Latest Blog Posts
             </h1>
-            {[...Array(10)].map((_, index) => (
-              <Link key={index} to={PathConstants.BLOG_VIEW}>
-                <div className="flex flex-wrap justify-start items-start gap-x-10 gap-y-5 pt-5 ml-20">
-                  <BlogPostCard
-                    // handleReadMoreClick={}
-                    title="Food Care Mobile App"
-                    gitLink=""
-                    short="In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available."
-                    image="/src/assets/p.jpg"
-                  />
-                </div>
-              </Link>
-            ))}
+            {loading ? (
+              <p>Loading...</p>
+            ) : error ? (
+              <p>Error: {error}</p>
+            ) : (
+              blogs.map((blog) => (
+                <Link key={blog.id} to={PathConstants.BLOG_VIEW}>
+                  <div className="flex flex-wrap justify-start items-start gap-x-10 gap-y-5 pt-5 ml-20">
+                    <BlogPostCard
+                      // handleReadMoreClick={}
+                      title={blog.title}
+                      gitLink=""
+                      short={blog.content}
+                      image={blog.image}
+                    />
+                  </div>
+                </Link>
+              ))
+            )}
           </div>
           <div className="flex h-screen w-2/5 justify-start items-center flex-col">
             <h1 className="text-gray-600 font-semibold text-2xl">Topics</h1>

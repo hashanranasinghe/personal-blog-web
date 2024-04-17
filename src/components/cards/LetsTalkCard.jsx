@@ -16,12 +16,12 @@ const LetsTalkCard = () => {
       <div className="p-6 pt-0">
         <div className="flex gap-4">
           <SocialMediaButton
-            link=""
+            link="https://linkedin.com/in/hashan-ranasinghe"
             bgColor="bg-[#0A66C2]"
             icon={<LinkedInIcon />}
           />
           <SocialMediaButton
-            link=""
+            link="https://github.com/hashanranasinghe"
             bgColor="bg-[#333333]"
             icon={<GitHubIcon />}
           />

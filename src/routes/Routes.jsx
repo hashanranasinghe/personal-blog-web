@@ -1,8 +1,9 @@
 import React from "react";
 import PathConstants from "./PathConstants.jsx";
+import HomePage from "../pages/homeview/HomePage.jsx";
+import BlogViewPage from "../pages/blogpostview/BlogViewPage.jsx";
 
-const HomePage = React.lazy(() => import("../pages/homeview/HomePage.jsx"));
-const BlogViewPage = React.lazy(() => import("../pages/blogpostview/BlogViewPage.jsx"));
+
 
 const routes = [
   { path: PathConstants.HOME, element: <HomePage /> },
